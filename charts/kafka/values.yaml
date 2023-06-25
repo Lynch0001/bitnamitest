@@ -51,7 +51,7 @@ serviceBindings:
 diagnosticMode:
   ## @param diagnosticMode.enabled Enable diagnostic mode (all probes will be disabled and the command will be overridden)
   ##
-  enabled: true
+  enabled: false
   ## @param diagnosticMode.command Command to override all containers in the statefulset
   ##
   command:
@@ -436,7 +436,7 @@ extraEnvVarsSecret: ""
 
 ## @param replicaCount Number of Kafka nodes
 ##
-replicaCount: 3
+replicaCount: 1
 ## @param minId Minimal node.id or broker.id values, nodes increment their value respectively
 ## Nodes or Brokers idncrement their ID starting at this minimal value.
 ## E.g., with `minId=100` and 3 nodes, IDs will be 100, 101, 102 for brokers 0, 1, and 2, respectively.
@@ -956,7 +956,7 @@ persistence:
     - ReadWriteOnce
   ## @param persistence.size PVC Storage Request for Kafka data volume
   ##
-  size: 1Gi
+  size: 8Gi
   ## @param persistence.annotations Annotations for the PVC
   ##
   annotations: {}
@@ -996,7 +996,7 @@ logPersistence:
     - ReadWriteOnce
   ## @param logPersistence.size PVC Storage Request for Kafka logs volume
   ##
-  size: 1Gi
+  size: 8Gi
   ## @param logPersistence.annotations Annotations for the PVC
   ##
   annotations: {}
@@ -1753,7 +1753,7 @@ kraft:
   ## Generate with `cat /proc/sys/kernel/random/uuid | tr -d '-' | base64 | cut -b 1-22`. Run `export LC_ALL=C` before if you generate it on MacOS.
   ## Example: k2yipv1sRue7z2_Y3o976A
   ##
-  clusterId: "Ly7rgDIrSMig6Mj-gbyaGQ"
+  clusterId: "kafka_cluster_id_test1"
   ## @param kraft.controllerQuorumVoters Quorum voters of Kafka Kraft cluster. Use it for nodes with 'broker' role only.
   ## Example: 1@controller1.example.com:9095,2@controller2.example.com:9095
   ##
@@ -1803,7 +1803,7 @@ zookeeper:
     storageClass: ""
     accessModes:
       - ReadWriteOnce
-    size: 1Gi
+    size: 8Gi
 
 ## External Zookeeper Configuration
 ## All of these values are only used if `zookeeper.enabled=false`
