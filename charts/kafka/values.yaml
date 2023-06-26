@@ -101,9 +101,9 @@ image:
 ## The server.properties is auto-generated based on other parameters when this parameter is not specified
 ## e.g:
 config: |-2
-   ssl.truststore.location=/opt/bitnami/kafka/configs/certs/kafka.truststore.jks
+   ssl.truststore.location=/opt/bitnami/kafka/config/certs/kafka.truststore.jks
    ssl.truststore.password=tpassword
-   ssl.keystore.location=/opt/bitnami/kafka/configs/certs/kafka.keystore.jks
+   ssl.keystore.location=/opt/bitnami/kafka/config/certs/kafka.keystore.jks
    ssl.keystore.password=kpassword
    ssl.key.password=password
    listeners=SSL://:9092
@@ -672,16 +672,16 @@ extraVolumes:
 ##
 extraVolumeMounts:
    - name: kafka-tls-k0
-     mountPath: /opt/bitnami/kafka/configs/certs/kafka-0.keystore.jks
+     mountPath: /opt/bitnami/kafka/config/certs/kafka-0.keystore.jks
      subPath: kafka-0.keystore.jks
    - name: kafka-tls-k1
-     mountPath: /opt/bitnami/kafka/configs/certs/kafka-1.keystore.jks
+     mountPath: /opt/bitnami/kafka/config/certs/kafka-1.keystore.jks
      subPath: kafka-1.keystore.jks
    - name: kafka-tls-k2
-     mountPath: /opt/bitnami/kafka/configs/certs/kafka-2.keystore.jks
+     mountPath: /opt/bitnami/kafka/config/certs/kafka-2.keystore.jks
      subPath: kafka-2.keystore.jks
    - name: kafka-tls-ts
-     mountPath: /opt/bitnami/kafka/configs/certs/kafka.truststore.jks
+     mountPath: /opt/bitnami/kafka/config/certs/kafka.truststore.jks
      subPath: kafka.truststore.jks
 
 ## @param sidecars Add additional sidecar containers to the Kafka pod(s)
